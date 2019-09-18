@@ -1,2 +1,2 @@
 # web-450
-Mastering the MEAN Steak
+Mastering the MEAN Stack

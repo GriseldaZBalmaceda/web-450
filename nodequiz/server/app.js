@@ -30,13 +30,6 @@ mongoose.connect(connString, {promiseLibrary: require('bluebird'), useNewUrlPars
 
 
 
-/**
- * Creates an express server and listens on port 3000
- */
-http.createServer(app).listen(serverPort, function() {
-  console.log(`Application started and listing on port: ${serverPort}`);
-});
-
 /**adding a new employee */
 app.post('/api/employees',function(req,res,next){
   const employee={
@@ -55,3 +48,17 @@ Employee.create(employee,function(err,employees){
   }
 })
 })
+
+app.get('/api/employees/:id', function(req, res, next) {
+  Employee.findOne({'employeeId': req.params.id}, function(err, employee) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    }  else {
+      console.log(employee);
+      res.json(employee);
+    }
+  })
+});
+
+

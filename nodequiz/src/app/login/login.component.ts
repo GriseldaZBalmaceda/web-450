@@ -1,6 +1,8 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 @Injectable()
 @Component({
   selector: 'app-login',
@@ -8,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  //creating form
  employeeLogin:FormGroup;
   errorMessage="Error"
 
@@ -17,18 +20,23 @@ ngOnInit() {
   })
 }
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private router:Router,private cookieService:CookieService) {
 
    }
+
+   //employee login function, accpet form as parameter
 loginEmployee(employeeLogin:FormGroup){
   const employeeId=employeeLogin.value.employeeId
-console.log(employeeId)
+  console.log(employeeId)
+//making get request with employeeId as a query, we then subscribe and check is user exists
   this.http.get('/api/employees/'+ employeeId).subscribe(res=>{
     if(res){
-      console.log('user is authenticated')
+      //if authenticated we set a cookie and allow the user to navigate to the dashboard
+      this.cookieService.set('isAuthenticated','true',1);
+      this.router.navigate(['/dashboard'])
     }else{
-    console.log('The employee you entered does not exist try again');
-    }
+      //if not authenticated the user recieves an error message
+    this.errorMessage='Please try again'    }
   })
 }
 

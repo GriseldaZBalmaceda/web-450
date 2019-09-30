@@ -1,3 +1,9 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: Employee Schema
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

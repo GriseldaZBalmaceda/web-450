@@ -1,3 +1,8 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: auth guard, logic of user authentication
+ */
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';

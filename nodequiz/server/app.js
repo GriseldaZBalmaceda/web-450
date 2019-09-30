@@ -1,3 +1,8 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: App.js, creating mongoose connection
+ */
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
@@ -38,6 +43,7 @@ app.post('/api/employees',function(req,res,next){
     lastName:req.body.lastName,
     quizes:req.body.quizes
   }
+  //creating an employee
 Employee.create(employee,function(err,employees){
   if(err){
     console.log(err);
@@ -49,6 +55,7 @@ Employee.create(employee,function(err,employees){
 })
 })
 
+//get request that accepts id
 app.get('/api/employees/:id', function(req, res, next) {
   Employee.findOne({'employeeId': req.params.id}, function(err, employee) {
     if (err) {

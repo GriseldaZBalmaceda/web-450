@@ -1,3 +1,8 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: Router Component
+ */
 import {Routes} from '@angular/router';
 import {BaseLayoutComponent} from './shared';
 import { LoginComponent } from './login/login.component';

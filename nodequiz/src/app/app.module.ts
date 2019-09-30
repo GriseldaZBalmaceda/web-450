@@ -1,3 +1,8 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: App Module
+ */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

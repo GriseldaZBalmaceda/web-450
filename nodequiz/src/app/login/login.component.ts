@@ -1,3 +1,9 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: login component showcasing form, http calls, and authentication of user
+ */
+
 import { Component, OnInit, Injectable } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';

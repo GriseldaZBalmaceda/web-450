@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   //creating form
  employeeLogin:FormGroup;
-  errorMessage="Error"
+  errorMessage:String;
 
 ngOnInit() {
   this.employeeLogin = new FormGroup({

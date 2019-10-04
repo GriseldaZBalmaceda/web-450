@@ -1,1 +1,33 @@
-<p>Welcome to the dashboard!</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main-body" fxLayout="row">
+  <div class="sideNav" fxFlex="20%">
+    <mat-sidenav-container style="height: 100vh"></mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <mat-toolbar>
+        </mat-toolbar>
+        <mat-nav-list>
+          <a mat-list-item > Current Quizzes </a>
+          <a mat-list-item > Past Quizzes </a>
+          <a mat-list-item > Add Quizzes </a>
+       </mat-nav-list>
+       <a mat-list-item style="position: absolute;bottom:0;margin-left:30%;margin-bottom: 10px;"> Log Out </a>
+
+      </mat-sidenav>
+
+  </div>
+  <div class="mainContent" fxFlex="70%">
+<div fxLayou="row">
+  <div fxFlex>
+      <mat-card>
+        <img mat-card-image src="../../assets/IntroToJavaScript.JPG" (click)="openCarousel()"/>
+          </mat-card>
+  </div>
+  <div fxFlex>
+      <mat-card>Simple card</mat-card>
+  </div>
+  <div fxFlex>
+      <mat-card>Simple card</mat-card>
+  </div>
+</div>
+  </div>
+</div>

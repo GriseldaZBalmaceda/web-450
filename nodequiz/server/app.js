@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const Employee=require('../models/employee')
-
+const Quizes= require ('../models/quiz')
 let app = express();
 
 app.use(bodyParser.json());
@@ -24,7 +24,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 const serverPort = 3000;
 
 /************************* Mongoose connection strings go below this line  ***************/
-const connString='mongodb+srv://user:newPassword!6@cluster0-yv2fv.mongodb.net/test?retryWrites=true&w=majority'
+const connString='mongodb+srv://user:newPassword!6@cluster0-yv2fv.mongodb.net/nodeQuiz?retryWrites=true&w=majority'
 mongoose.connect(connString, {promiseLibrary: require('bluebird'), useNewUrlParser: true})
         .then(() => console.debug('Connection to the MongoDB instance was successful'))
         .catch((err) => console.debug('MongoDB Error: ' + err.message));
@@ -64,6 +64,20 @@ app.get('/api/employees/:id', function(req, res, next) {
     }  else {
       console.log(employee);
       res.json(employee);
+    }
+  })
+});
+
+//Quiz get request that accepts id
+app.get('/api/quiz/:id', function(req, res, next) {
+
+ Quizes.findOne({'quizId': req.params.id}, function(err, quiz) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    }  else {
+      console.log(quiz);
+      res.json(quiz);
     }
   })
 });

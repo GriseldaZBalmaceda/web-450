@@ -1,0 +1,11 @@
+
+    <div>
+      <div>
+          <mat-card>
+            <h1>{{currentQuestion}}</h1>
+              </mat-card>
+      </div>
+      <div *ngFor="let questions of currentChoices">
+          <mat-card>{{questions}}</mat-card>
+      </div>
+    </div>

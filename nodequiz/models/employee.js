@@ -14,4 +14,4 @@ let employeeSchema = new Schema({
   quizes:{type:Array}
 });
 
-module.exports=mongoose.model('Employee',employeeSchema)
+module.exports=mongoose.model('Employee',employeeSchema,'Employees')

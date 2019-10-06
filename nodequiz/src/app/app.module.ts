@@ -26,6 +26,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {CarouselModule} from 'primeng/carousel';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuizCarouselDialogComponent } from './quiz-carousel-dialog/quiz-carousel-dialog.component';
+import { QuizComponent } from './quiz/quiz.component';
 //importing all modules that are needed
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { QuizCarouselDialogComponent } from './quiz-carousel-dialog/quiz-carouse
     LoginComponent,
     DashboardComponent,
     QuizCarouselDialogComponent,
+    QuizComponent,
 
   ],
   imports: [

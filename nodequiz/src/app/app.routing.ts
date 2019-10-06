@@ -8,6 +8,7 @@ import {BaseLayoutComponent} from './shared';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './shared/auth.guard';
+import { QuizComponent } from './quiz/quiz.component';
 //adding required routes and adding authguard to allow authenticated users to the dashbaord screen
 export const AppRoutes: Routes = [
   {
@@ -19,7 +20,14 @@ export const AppRoutes: Routes = [
   },
   {path:'dashboard',
   component:DashboardComponent,
+  children:[
+
+  ],
   canActivate:[AuthGuard]
+},
+{path:'quiz/:id',
+component:QuizComponent,
+canActivate:[AuthGuard]
 }
 
     ]

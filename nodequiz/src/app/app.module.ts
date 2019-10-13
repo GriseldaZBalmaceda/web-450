@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav'
 import {HttpClientModule} from '@angular/common/http'
 import {MatListModule} from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './shared/auth.guard';
@@ -52,6 +53,7 @@ import { QuizComponent } from './quiz/quiz.component';
     MatListModule,
     CarouselModule,
     MatDialogModule,
+    MatFormFieldModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
   ],
   exports:[

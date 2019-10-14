@@ -28,6 +28,9 @@ import {CarouselModule} from 'primeng/carousel';
 import {MatDialogModule} from '@angular/material/dialog';
 import { QuizCarouselDialogComponent } from './quiz-carousel-dialog/quiz-carousel-dialog.component';
 import { QuizComponent } from './quiz/quiz.component';
+import {MatButtonModule} from '@angular/material/button';
+import { CummulativeSummaryComponent } from './cummulative-summary/cummulative-summary.component';
+import {MatTableModule} from '@angular/material/table';
 //importing all modules that are needed
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { QuizComponent } from './quiz/quiz.component';
     DashboardComponent,
     QuizCarouselDialogComponent,
     QuizComponent,
+    CummulativeSummaryComponent,
 
   ],
   imports: [
@@ -47,11 +51,13 @@ import { QuizComponent } from './quiz/quiz.component';
     HttpClientModule,
     FormsModule,
     MatToolbarModule,
+    MatButtonModule,
     MatCardModule,
     MatSidenavModule,
     ReactiveFormsModule,
     MatListModule,
     CarouselModule,
+    MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),

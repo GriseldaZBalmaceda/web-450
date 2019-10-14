@@ -1,10 +1,8 @@
 <h1 mat-dialog-title>{{quiz.quizName}}</h1>
-<div mat-dialog-content>
-
-  <p-carousel [value]="images" numVisible="1" headerText="{{quiz.quizName}}">
+  <p-carousel [value]="images" numVisible="1">
       <ng-template let-item pTemplate="item">
             <div>
-              <img src="../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg"  width="60">
+              <img src="../../assets/Presentations/{{quiz.quizName}}/{{item.name}}.jpg"  width="1000">
             </div>
       </ng-template>
   </p-carousel>

@@ -23,8 +23,8 @@ openCarousel(data):void{
     if(res){
       this.quiz=res;
       const dialogRef = this.dialog.open(QuizCarouselDialogComponent,{
-        width:'500px',
-        height:'500px',
+        width:'1000px',
+        height:'1000px',
         data:{sentQuizId:{quizName:this.quiz.quizName}}  });
           dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed' , result);

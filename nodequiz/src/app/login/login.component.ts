@@ -30,7 +30,7 @@ ngOnInit() {
 
    }
 
-   //employee login function, accpet form as parameter
+  //  employee login function, accpet form as parameter
 loginEmployee(employeeLogin:FormGroup){
   const employeeId=employeeLogin.value.employeeId
   console.log(employeeId)

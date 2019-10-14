@@ -1,4 +1,12 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: Cummulative Summary
+ */
+
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-cummulative-summary',
@@ -6,6 +14,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cummulative-summary.component.css']
 })
 export class CummulativeSummaryComponent implements OnInit {
+
+  //example from angular material, wanted to see how the table will be implemented
    PeriodicElement = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
     {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -20,7 +30,16 @@ export class CummulativeSummaryComponent implements OnInit {
   ];
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  constructor() { }
+  constructor(private router:Router,private http:HttpClient) {
+    this.http.get('/api/summary').subscribe(res=>{
+      if(res){
+        console.log(res)
+      }else{
+        //if not authenticated the user recieves an error message
+     console.log('error')
+    }})
+
+  }
 
   ngOnInit() {
   }

@@ -1,3 +1,9 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: Quiz Component
+ */
+
 import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import {HttpClient} from '@angular/common/http';
@@ -32,11 +38,9 @@ q:any=[];
       console.log(res)
       this.quiz=res;
         this.questions=this.quiz.questions
-      // this.quiz = this.quizzes.filter(q => q.quizId === this.quizId)[0];
       console.log(this.questions);
-        //if authenticated we set a cookie and allow the user to navigate to the dashboard
       }else{
-        //if not authenticated the user recieves an error message
+
     }
 
    })
@@ -55,6 +59,7 @@ q:any=[];
       }
     }
   }
+  //sending post request
    this.http.post('/api/results/', {
     employeeId: this.employeeId,
     quizId: this.quizId,

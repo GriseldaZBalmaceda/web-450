@@ -1,3 +1,10 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description:DashBoard component
+ */
+
+
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { QuizCarouselDialogComponent } from '../quiz-carousel-dialog/quiz-carousel-dialog.component';
@@ -22,6 +29,7 @@ openCarousel(data):void{
   this.http.get('/api/quiz/'+ data).subscribe(res=>{
     if(res){
       this.quiz=res;
+      //creating a dialog that will open the slideshow in a modal
       const dialogRef = this.dialog.open(QuizCarouselDialogComponent,{
         width:'1000px',
         height:'1000px',

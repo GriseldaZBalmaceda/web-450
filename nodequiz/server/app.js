@@ -54,7 +54,6 @@ Employee.create(employee,function(err,employees){
   }
 })
 })
-
 //get request that accepts id
 app.get('/api/employees/:id', function(req, res, next) {
   Employee.findOne({'employeeId': req.params.id}, function(err, employee) {
@@ -67,6 +66,19 @@ app.get('/api/employees/:id', function(req, res, next) {
     }
   })
 });
+//get request that accepts id
+app.get('/api/summary', function(req, res, next) {
+  Summary.find(function(err, summaries) {
+    if (err) {
+      console.log(err);
+
+    }  else {
+      console.log(summaries);
+      res.json(summaries);
+    }
+  })
+});
+
 
 //Quiz get request that accepts id
 app.get('/api/quiz/:id', function(req, res, next) {
@@ -81,6 +93,19 @@ app.get('/api/quiz/:id', function(req, res, next) {
     }
   })
 });
+app.get('/api/summary', function(req, res, next) {
+
+ Summary.findOne({'quizId': req.params.id}, function(err, quiz) {
+     if (err) {
+       console.log(err);
+       return next(err);
+     }  else {
+       console.log(quiz);
+       res.json(quiz);
+     }
+   })
+ });
+
 
 http.createServer(app).listen(serverPort, function() {
   console.log(`Application started and listing on port: ${serverPort}`);

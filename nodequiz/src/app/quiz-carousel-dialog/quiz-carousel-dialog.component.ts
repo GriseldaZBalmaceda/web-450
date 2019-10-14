@@ -1,3 +1,9 @@
+/**
+ * Author: Griselda
+ * Date: 9/24/2019
+ * Description: carousel dialog
+ */
+
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 import {DashboardComponent} from '../dashboard/dashboard.component'

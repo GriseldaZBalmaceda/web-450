@@ -11,6 +11,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Employee=require('../models/employee')
 const Quizes= require ('../models/quiz')
+const Summary= require ('../models/summary')
 let app = express();
 
 app.use(bodyParser.json());
@@ -43,6 +44,7 @@ app.post('/api/employees',function(req,res,next){
     lastName:req.body.lastName,
     quizes:req.body.quizes
   }
+
   //creating an employee
 Employee.create(employee,function(err,employees){
   if(err){
@@ -66,20 +68,35 @@ app.get('/api/employees/:id', function(req, res, next) {
     }
   })
 });
-//get request that accepts id
-app.get('/api/summary', function(req, res, next) {
-  Summary.find(function(err, summaries) {
-    if (err) {
-      console.log(err);
 
-    }  else {
-      console.log(summaries);
-      res.json(summaries);
+app.post('/api/summary',function(req,res,next){
+  const summary={
+    employeeId:req.body.employeeId,
+    quizId:req.body.quizId,
+    score:req.body.score
+  }
+
+  //creating an employee
+Summary.create(summary,function(err,summary){
+  if(err){
+    console.log(err);
+    return next(err);
+  }else{
+    res.json(summary);
+  }
+})
+})
+
+app.get('/api/summary',function(req,res,next){
+  Summary.find(function(err,summaries){
+    if(err){
+      return next(err)
+    }else{
+      console.log('EEEKK'+summaries)
+      res.json(summaries)
     }
   })
-});
-
-
+})
 //Quiz get request that accepts id
 app.get('/api/quiz/:id', function(req, res, next) {
 
@@ -93,18 +110,7 @@ app.get('/api/quiz/:id', function(req, res, next) {
     }
   })
 });
-app.get('/api/summary', function(req, res, next) {
 
- Summary.findOne({'quizId': req.params.id}, function(err, quiz) {
-     if (err) {
-       console.log(err);
-       return next(err);
-     }  else {
-       console.log(quiz);
-       res.json(quiz);
-     }
-   })
- });
 
 
 http.createServer(app).listen(serverPort, function() {

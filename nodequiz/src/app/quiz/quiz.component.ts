@@ -24,7 +24,9 @@ quizResults:any;
 employeeId:string;
 questionNumber=0;
 selectedAnswers=[]
+answers=[]
 correctAnswers=[]
+score:any
 qs:any=[];
 q:any=[];
   constructor(private route:ActivatedRoute,private router:Router, private cookieService: CookieService,private http: HttpClient) {
@@ -55,15 +57,21 @@ q:any=[];
     if(this.quizResults.hasOwnProperty(prop)){
       if(prop !== 'employeeId' && prop !== 'quizId' && prop !=='score'){
         this.selectedAnswers.push(this.quizResults[prop].split(';')[0]);
-        this.correctAnswers.push(this.quizResults[prop].split(';')[1]);
+
+        this.answers.push(this.quizResults[prop].split(';')[1]);
       }
     }
   }
+let totalInCorrect = this.answers.filter(function(inCorrectAnswer){
+  return inCorrectAnswer==="false";
+})
+let score=(this.questions.length)-totalInCorrect.length
+console.log(score)
   //sending post request
    this.http.post('/api/results/', {
     employeeId: this.employeeId,
     quizId: this.quizId,
-    result: JSON.stringify(form)
+    score:this.score,
   })
 
 

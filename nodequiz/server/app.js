@@ -22,8 +22,7 @@ app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
 // Global variables
-const serverPort = 3000;
-
+const serverPort = process.env.PORT || 3000;
 /************************* Mongoose connection strings go below this line  ***************/
 const connString='mongodb+srv://user:newPassword!6@cluster0-yv2fv.mongodb.net/nodeQuiz?retryWrites=true&w=majority'
 mongoose.connect(connString, {promiseLibrary: require('bluebird'), useNewUrlParser: true})
@@ -70,9 +69,12 @@ app.get('/api/employees/:id', function(req, res, next) {
 });
 
 app.post('/api/summary',function(req,res,next){
+  console.log(req)
   const summary={
     employeeId:req.body.employeeId,
     quizId:req.body.quizId,
+    quizName:req.body.quizName,
+    date:req.body.date,
     score:req.body.score
   }
 

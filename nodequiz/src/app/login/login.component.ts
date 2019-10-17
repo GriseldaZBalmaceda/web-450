@@ -39,6 +39,7 @@ loginEmployee(employeeLogin:FormGroup){
     if(res){
       //if authenticated we set a cookie and allow the user to navigate to the dashboard
       this.cookieService.set('isAuthenticated','true',1);
+      this.cookieService.set('employeeId', employeeId, 1);
       this.router.navigate(['/dashboard'])
     }else{
       //if not authenticated the user recieves an error message
